@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Tasks</title>
+        <link href="/style/login.css" rel="stylesheet" />
+    </head>
+    <body>
+        <%- include('_header', {}) %>
+        <div class="main">
+            <% tasks.forEach(function(task){ %>
+                <div class="task">
+                    <h2><%= task.title %></h2>
+                    <p><%= task.estimation %></p>
+                </div>
+            <% }) %>
+        </div>
+        <%- include('_footer', {}) %>
+    </body>
+</html>

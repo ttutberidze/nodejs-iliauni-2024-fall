@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.login {
+    background-color: aqua;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.task {
+    border: 1px solid lime
+}
