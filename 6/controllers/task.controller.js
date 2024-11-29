@@ -3,9 +3,25 @@ const Task = require("../models/task.model");
 const User = require("../models/user.model");
 const {ObjectId} = require('mongodb')
 
+const delay = (delayMs = 1000) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve()
+        }, delayMs)
+    })
+}
+
 const getTasks = asyncCatch(async (req, res) => {
+    console.log('Get Tasks Called')
     const tasks = await Task.find(req.query).populate('user');
+    await delay(5000)
     res.send(tasks);
+})
+
+const getTask = asyncCatch(async (req, res) => {
+    const task = await Task.findOne({_id: req.params.taskId});
+    await delay(5000)
+    res.send(task);
 })
 
 const createTask = asyncCatch(async (req, res) => {
@@ -35,5 +51,5 @@ const assignTaskToUser = asyncCatch(async (req, res) => {
 })
 
 module.exports = {
-    getTasks, createTask, getStatistics, assignTaskToUser
+    getTasks, createTask, getStatistics, assignTaskToUser, getTask
 }

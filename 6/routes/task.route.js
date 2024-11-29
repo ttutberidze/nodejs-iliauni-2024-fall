@@ -11,4 +11,7 @@ router.get('/statistics', taskController.getStatistics)
 
 router.route('/assign').post(taskController.assignTaskToUser)
 
+router
+    .get('/:taskId', taskController.getTask)
+
 module.exports = router;
